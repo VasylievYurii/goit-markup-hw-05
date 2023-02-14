@@ -1,4 +1,5 @@
 :root {
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --primary-brand: #4D5AE5;
     --pressed-state: #404BBF;
     --dark-color: #2E2F42;
@@ -14,6 +15,8 @@
     --default-color: #ffffff;
     --social-media: rgba(255, 255, 255, 0.1);
     --light-slate: #8E8F99;
+    --backdrop: rgba(46, 47, 66, 0.4);
+    --madal: #FCFCFC;
 }
 
 body {
@@ -64,6 +67,7 @@ img {
 .site-nav {
     display: flex;
     align-items: center;
+
 }
 
 .header-logo {
@@ -81,6 +85,7 @@ img {
 }
 
 .nav {
+    position: relative;
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -89,14 +94,31 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
+    transition: color 250ms var(--timing-function);
+
+
 }
 
-.site-nav .link:focus,
-.site-nav .link:hover,
+.nav.current::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    background-color: var(--pressed-state);
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+}
+
+
+.nav:focus,
+.nav:hover,
 .auth-nav .link:focus,
 .auth-nav .link:hover,
 .nav.current {
     color: var(--pressed-state);
+
 }
 
 .auth-nav {
@@ -106,6 +128,9 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
+
+
+
 }
 
 .auth-nav .list {
@@ -117,6 +142,8 @@ img {
 .auth-nav .link {
     font-family: inherit;
     color: inherit;
+    transition: color 250ms var(--timing-function);
+
 }
 
 .list.menu {
@@ -137,21 +164,26 @@ img {
     list-style: none;
 }
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*__________________________HERO____________________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 .hero {
-    padding-top: 188px;
-    padding-bottom: 188px;
-    background-image: linear-gradient(to top, var(--hero-background), var(--hero-background)), url('../images/people-office.jpg');
-    background-size: cover;
-    background-position: center;
     text-align: center;
 }
 
+.background {
+    padding-top: 188px;
+    padding-bottom: 188px;
+    max-width: 1440px;
+    background-image: linear-gradient(to top, var(--hero-background), var(--hero-background)), url('../images/people-office.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
+
 .hero-title {
-    margin: auto;
+    margin: 0 auto;
     width: 496px;
     margin-bottom: 48px;
     color: var(--default-color);
@@ -175,6 +207,8 @@ img {
     line-height: 1.5;
     letter-spacing: 0.04em;
 
+    transition: background-color 250ms var(--timing-function);
+
 }
 
 .hero-button:hover,
@@ -187,9 +221,9 @@ img {
     /* outline: 2px solid crimson; */
 }
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*____________________Benefits section______________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 
 .container-list {
@@ -205,7 +239,6 @@ img {
 }
 
 .icon {
-    content: '';
     display: flex;
     width: 100%;
     height: 112px;
@@ -222,9 +255,7 @@ img {
 
 .item-icon {
     width: 64px;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
+    height: 60px;
 
 }
 
@@ -259,9 +290,9 @@ img {
 
 
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*___________________Production section_____________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 
 .production.section {
@@ -293,9 +324,9 @@ img {
     border: 1px solid var(--accent-color);
 }
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*______________________Team section________________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 .team {
     background-color: var(--light-mode);
@@ -366,6 +397,8 @@ img {
     background-color: var(--primary-brand);
     justify-content: center;
     align-items: center;
+
+    transition: background-color 250ms var(--timing-function);
 }
 
 .social-link:hover,
@@ -379,9 +412,9 @@ img {
     height: 16px;
 }
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*________________________Customers_________________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 .customers-text {
     color: var(--dark-color);
@@ -407,12 +440,14 @@ img {
     border: 1px solid var(--light-slate);
     align-items: center;
     justify-content: center;
+    transition: border 250ms var(--timing-function);
 }
 
 .customers-logo {
     fill: var(--light-slate);
     width: 104px;
     height: 56px;
+    transition: fill 250ms var(--timing-function);
 }
 
 .customers-link:is(:hover, :focus) {
@@ -424,9 +459,9 @@ img {
     fill: var(--pressed-state);
 }
 
-/* ======================================================== */
+/*_________________________________________________________ */
 /*_________________________Footer___________________________*/
-/* ======================================================== */
+/*_________________________________________________________ */
 
 .footer {
     padding-top: 100px;
@@ -489,6 +524,8 @@ img {
     align-items: center;
     justify-content: center;
 
+    transition: background-color 250ms var(--timing-function);
+
 
 }
 
@@ -510,7 +547,77 @@ img {
     height: 24px;
 }
 
+/*_________________________________________________________ */
+/*______________________Modal window________________________*/
+/*_________________________________________________________ */
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--backdrop);
+    opacity: 1;
+    transition: opacity 250ms var(--timing-function);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 408px;
+    height: 576px;
+
+    background-color: var(--madal);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+
+}
+
+.button-modal {
+    display: flex;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--accent-color);
+    border-radius: 50% 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    transition: background-color 250ms var(--timing-function);
+}
+
+.icon-close {
+    width: 8px;
+    height: 8px;
+    fill: #000;
+
+}
+
+.button-modal:is(:hover, :focus) {
+    background-color: var(--pressed-state);
+}
+
+.button-modal:is(:hover, :focus) .icon-close {
+    fill: #fff;
+}
 
 /* ======================================================== */
 /*__________________Portfolio main page_____________________*/
@@ -556,6 +663,10 @@ img {
     line-height: 1.5;
     letter-spacing: 0.04em;
     cursor: pointer;
+
+    transition-property: color, background-color, box-shadow, border;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .filter-btn:is(:hover, :focus) {
@@ -596,12 +707,42 @@ img {
     margin-right: 24px;
     margin-bottom: 48px;
     border: 1px solid var(--accent-color);
-    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
+    transition: box-shadow 250ms var(--timing-function);
+
 }
 
-.work:hover,
-.work:focus {
-    /* border: 0.5px solid var(--light-mode); */
+.work-thumb {
+    position: relative;
+    overflow: hidden;
+
+}
+
+.work-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--primary-brand);
+    width: 100%;
+    height: 100%;
+
+    transform: translateY(100%);
+    transition: transform 250ms var(--timing-function);
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--light-mode);
+    padding: 40px 32px;
+}
+
+.work:is(:hover, :focus) .work-text {
+    transform: translateY(0);
+}
+
+.work:is(:hover, :focus) {
+
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 

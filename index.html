@@ -49,10 +49,10 @@
 
     <main>
         <!-- Hero here-->
-        <section class="hero">
-            <div class="container">
+        <section class="hero ">
+            <div class="container background">
                 <h1 class="hero-title">Effective Solutions for Your Business</h1>
-                <button class="hero-button" type="button">Order Service</button>
+                <button class="hero-button" type="button" data-modal-open>Order Service</button>
             </div>
         </section>
 
@@ -432,6 +432,19 @@
             </div>
         </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="button-modal" data-modal-close>
+                <svg class="icon-close">
+                    <use href="./images/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
