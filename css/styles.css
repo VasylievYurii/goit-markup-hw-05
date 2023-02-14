@@ -609,6 +609,8 @@ img {
     height: 8px;
     fill: #000;
 
+    transition: fill 250ms var(--timing-function);
+
 }
 
 .button-modal:is(:hover, :focus) {
