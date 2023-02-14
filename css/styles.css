@@ -739,7 +739,7 @@ img {
     padding: 40px 32px;
 }
 
-.work:is(:hover, :focus) .work-text {
+.portfolio-link:is(:hover, :focus) .work-text {
     transform: translateY(0);
 }
 
