@@ -88,7 +88,7 @@ img {
     position: relative;
     display: block;
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 28px;
     color: var(--dark-color);
     font-weight: 500;
     font-size: 16px;
@@ -99,7 +99,7 @@ img {
 
 }
 
-.nav.current::after {
+.current::after {
     content: "";
     display: block;
     position: absolute;
@@ -116,7 +116,7 @@ img {
 .nav:hover,
 .auth-nav .link:focus,
 .auth-nav .link:hover,
-.nav.current {
+.current {
     color: var(--pressed-state);
 
 }
@@ -206,6 +206,7 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.04em;
+    cursor: pointer;
 
     transition: background-color 250ms var(--timing-function);
 
@@ -562,12 +563,16 @@ img {
 
     background-color: var(--backdrop);
     opacity: 1;
-    transition: opacity 250ms var(--timing-function);
+    scale: 1;
+    visibility: visible;
+    transition: opacity 250ms var(--timing-function), scale 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    scale: 0.9;
+    visibility: hidden;
 }
 
 .modal {
@@ -596,6 +601,7 @@ img {
     height: 24px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     background-color: var(--accent-color);
     border-radius: 50% 50%;
